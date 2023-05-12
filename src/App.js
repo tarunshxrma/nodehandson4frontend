@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import Login from './Components/Login';
+import Signup from './Components/Signup';
+import "./Components/Components.css"
+import Bollywood from './Components/Bollywood';
+import Technology from './Components/Technology';
+import Hollywood from './Components/Hollywood';
+import Fitness from './Components/Fitness';
+import Food from './Components/Food';
 
-function App() {
+const App = () => {
+  const [state,setState] = useState(true);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <>
+    {state?<Login setState={setState}/>:<Signup setState={setState}/>}
+    <div className='buttons'>
+    <Bollywood/>
+    <Technology/>
+    <Hollywood/>
+    <Fitness/>
+    <Food/>
     </div>
-  );
+    </>
+  )
 }
 
-export default App;
+export default App
